@@ -18,7 +18,7 @@ class Main {
       int? seaLevel, 
       int? grndLevel, 
       int? humidity, 
-      double? tempKf,}){
+      num? tempKf,}){
     _temp = temp;
     _feelsLike = feelsLike;
     _tempMin = tempMin;
@@ -49,7 +49,7 @@ class Main {
   int? _seaLevel;
   int? _grndLevel;
   int? _humidity;
-  double? _tempKf;
+  num? _tempKf;
 Main copyWith({  double? temp,
   double? feelsLike,
   double? tempMin,
@@ -77,7 +77,7 @@ Main copyWith({  double? temp,
   int? get seaLevel => _seaLevel;
   int? get grndLevel => _grndLevel;
   int? get humidity => _humidity;
-  double? get tempKf => _tempKf;
+  num? get tempKf => _tempKf;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

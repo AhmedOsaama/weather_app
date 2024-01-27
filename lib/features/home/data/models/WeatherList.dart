@@ -22,7 +22,7 @@ class WeatherList {
       Clouds? clouds, 
       Wind? wind, 
       int? visibility, 
-      int? pop, 
+      num? pop,
       Sys? sys, 
       String? dtTxt,}){
     _dt = dt;
@@ -58,7 +58,7 @@ class WeatherList {
   Clouds? _clouds;
   Wind? _wind;
   int? _visibility;
-  int? _pop;
+  num? _pop;
   Sys? _sys;
   String? _dtTxt;
 WeatherList copyWith({  int? dt,
@@ -86,7 +86,7 @@ WeatherList copyWith({  int? dt,
   Clouds? get clouds => _clouds;
   Wind? get wind => _wind;
   int? get visibility => _visibility;
-  int? get pop => _pop;
+  num? get pop => _pop;
   Sys? get sys => _sys;
   String? get dtTxt => _dtTxt;
 

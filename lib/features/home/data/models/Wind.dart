@@ -6,7 +6,7 @@ class Wind {
   Wind({
       double? speed, 
       int? deg, 
-      double? gust,}){
+      num? gust,}){
     _speed = speed;
     _deg = deg;
     _gust = gust;
@@ -19,7 +19,7 @@ class Wind {
   }
   double? _speed;
   int? _deg;
-  double? _gust;
+  num? _gust;
 Wind copyWith({  double? speed,
   int? deg,
   double? gust,
@@ -29,7 +29,7 @@ Wind copyWith({  double? speed,
 );
   double? get speed => _speed;
   int? get deg => _deg;
-  double? get gust => _gust;
+  num? get gust => _gust;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

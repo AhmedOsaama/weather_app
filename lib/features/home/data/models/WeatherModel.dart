@@ -25,9 +25,9 @@ class WeatherModel {
     _cod = json['cod'];
     _message = json['message'];
     _cnt = json['cnt'];
-    if (json['weather_list'] != null) {
+    if (json['list'] != null) {
       _weatherList = [];
-      json['weather_list'].forEach((v) {
+      json['list'].forEach((v) {
         _weatherList?.add(WeatherList.fromJson(v));
       });
     }
@@ -61,7 +61,7 @@ WeatherModel copyWith({  String? cod,
     map['message'] = _message;
     map['cnt'] = _cnt;
     if (_weatherList != null) {
-      map['weather_list'] = _weatherList?.map((v) => v.toJson()).toList();
+      map['list'] = _weatherList?.map((v) => v.toJson()).toList();
     }
     if (_city != null) {
       map['city'] = _city?.toJson();
