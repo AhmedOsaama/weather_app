@@ -12,6 +12,7 @@ class FiveDayForecastProvider with ChangeNotifier{
 
 
   List<WeatherList> weatherList = [];
+  String cityName = "";
 
   Future<void> fetchFiveDayForecast() async {
     var locationData = await requestLocation();
@@ -20,6 +21,7 @@ class FiveDayForecastProvider with ChangeNotifier{
       print("Error: $result");
     }else{
       weatherList = result.weatherList!;
+      cityName = result.city!.name!;
     }
     notifyListeners();
   }

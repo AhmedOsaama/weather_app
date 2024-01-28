@@ -15,14 +15,6 @@ class HomeRepoImpl implements HomeRepo{
     var data = await apiService.get(
         endPoint: '?lat=${lat}&lon=${long}&appid=f6b8b253f95d22ea06e8db2604eb413f&units=$unit');
     WeatherModel weatherModel = WeatherModel.fromJson(data);
-    var weatherList = weatherModel.weatherList;
-    // print(weatherList);
-    // for (var item in weatherList!) {
-    //   print(item.dtTxt);
-    //   print(item.main!.temp);
-    //   print(item.main!.feelsLike);
-    //   print(item.main!.humidity);
-    // }
     return weatherModel;
   }catch(e){
     if(e is DioException){

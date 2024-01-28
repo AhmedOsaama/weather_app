@@ -4,7 +4,7 @@ import 'package:weather_forecast/core/service_locator.dart';
 import 'package:weather_forecast/features/home/data/repos/home_repo_impl.dart';
 import 'package:weather_forecast/features/home/presentation/manager/five_day_forecast_provider.dart';
 import 'package:weather_forecast/features/home/presentation/manager/location_provider.dart';
-import 'package:weather_forecast/features/home/presentation/views/home_view.dart';
+import 'package:weather_forecast/features/home/presentation/views/home_screen.dart';
 
 void main() {
   setupServiceLocator();
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
