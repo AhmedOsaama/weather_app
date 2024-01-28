@@ -10,10 +10,10 @@
 
 class Main {
   Main({
-      double? temp, 
-      double? feelsLike, 
-      double? tempMin, 
-      double? tempMax, 
+      num? temp,
+    num? feelsLike,
+    num? tempMin,
+    num? tempMax,
       int? pressure, 
       int? seaLevel, 
       int? grndLevel, 
@@ -41,16 +41,17 @@ class Main {
     _humidity = json['humidity'];
     _tempKf = json['temp_kf'];
   }
-  double? _temp;
-  double? _feelsLike;
-  double? _tempMin;
-  double? _tempMax;
+  num? _temp;
+  num? _feelsLike;
+  num? _tempMin;
+  num? _tempMax;
   int? _pressure;
   int? _seaLevel;
   int? _grndLevel;
   int? _humidity;
   num? _tempKf;
-Main copyWith({  double? temp,
+Main copyWith({
+  num? temp,
   double? feelsLike,
   double? tempMin,
   double? tempMax,
@@ -69,10 +70,10 @@ Main copyWith({  double? temp,
   humidity: humidity ?? _humidity,
   tempKf: tempKf ?? _tempKf,
 );
-  double? get temp => _temp;
-  double? get feelsLike => _feelsLike;
-  double? get tempMin => _tempMin;
-  double? get tempMax => _tempMax;
+  num? get temp => _temp;
+  num? get feelsLike => _feelsLike;
+  num? get tempMin => _tempMin;
+  num? get tempMax => _tempMax;
   int? get pressure => _pressure;
   int? get seaLevel => _seaLevel;
   int? get grndLevel => _grndLevel;

@@ -14,67 +14,6 @@ class HomeScreenBody extends StatelessWidget {
   HomeScreenBody({Key? key}) : super(key: key);
   List<WeatherList> weatherList = [];
 
-  // LineChartData get sampleData1 => LineChartData(
-  //   // lineTouchData: lineTouchData1,
-  //   gridData: gridData,
-  //   titlesData: titlesData1,
-  //   borderData: borderData,
-  //   lineBarsData: lineBarsData1,
-  //   minX: 1,
-  //   maxX: 5,
-  //   maxY: 200,
-  //   minY: 0,
-  // );
-  // List<LineChartBarData> get lineBarsData1 => [
-  //   lineChartBarData1_1,
-  // ];
-  //
-  // FlBorderData get borderData => FlBorderData(
-  //   show: false,
-  //   // border: Border(
-  //   //   bottom:
-  //   //   BorderSide(color: AppColors.primary.withOpacity(0.2), width: 4),
-  //   //   left: const BorderSide(color: Colors.transparent),
-  //   //   right: const BorderSide(color: Colors.transparent),
-  //   //   top: const BorderSide(color: Colors.transparent),
-  //   // ),
-  // );
-  //
-  // FlGridData get gridData => FlGridData(show: false);
-  //
-  // FlTitlesData get titlesData1 => FlTitlesData(
-  //   bottomTitles: AxisTitles(
-  //     sideTitles: SideTitles(showTitles: false),
-  //   ),
-  //   rightTitles: AxisTitles(
-  //     sideTitles: SideTitles(showTitles: false),
-  //   ),
-  //   topTitles: AxisTitles(
-  //     sideTitles: SideTitles(showTitles: true),
-  //   ),
-  //   leftTitles: AxisTitles(
-  //     sideTitles: SideTitles(showTitles: false),
-  //   ),
-  // );
-  //
-  // LineChartBarData get lineChartBarData1_1 => LineChartBarData(
-  //   isCurved: false,
-  //   color: Colors.green,
-  //   // barWidth: 8,
-  //   isStrokeCapRound: true,
-  //   dotData: FlDotData(show: true),
-  //   spots: const [
-  //     FlSpot(1, 78),
-  //     FlSpot(2, 89),
-  //     FlSpot(3, 45),
-  //     FlSpot(4, 22),
-  //     FlSpot(5,66),
-  //   ],
-  // );
-  //
-  //
-  // List<FlSpot> spotsList = [];
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -96,7 +35,6 @@ class HomeScreenBody extends StatelessWidget {
                       itemBuilder: (context, i) =>
                           Container(
                             color: i == 0 ? Colors.blue.withOpacity(0.1) : null,
-                            // padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Column(
                               children: [
                                 Container(
@@ -112,18 +50,18 @@ class HomeScreenBody extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 15,),
+                                const SizedBox(height: 15,),
                                 Text("${weatherList[i].main!.tempMax}°", style: const TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.w600, color: Colors.red),),
-                                SizedBox(height: 5,),
+                                const SizedBox(height: 5,),
                                 Text("${weatherList[i].main!.tempMin}°", style: const TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w600, color: Colors.green),),
-                                SizedBox(height: 10,),
+                                const SizedBox(height: 10,),
                                 Text("${weatherList[i].weather!.first.main}",),
-                                SizedBox(height: 15,),
+                                const SizedBox(height: 15,),
                                 Row(
                                   children: [
-                                    Icon(Icons.water_drop_outlined),
+                                    const Icon(Icons.water_drop_outlined),
                                     Text(weatherList[i].main!.humidity.toString()),
                                   ],
                                 ),
@@ -146,26 +84,25 @@ class HomeScreenBody extends StatelessWidget {
                           child: Row(
                             children: [
                               const Icon(Icons.stacked_bar_chart, color: Colors.white,),
-                              SizedBox(width: 10,),
+                              const SizedBox(width: 10,),
                               const Text("14 day weather", style: TextStyle(color: Colors.white),),
                               const Spacer(),
-                              InkWell(
-                                  child: IconButton(onPressed: () {}, icon: Icon(Icons.share, color: Colors.white,))),
+                              IconButton(onPressed: () {}, icon: const Icon(Icons.share, color: Colors.white,)),
                             ],
                           ),
                         ),
                       ),
+                      const SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: weatherList.map((e) => Text(getDayName(e.dtTxt!))).toList(),
                       ),
-                      const SizedBox(height: 50,),
                       Sparkline(
                         pointsMode: PointsMode.all,
                           lineColor: Colors.red,
                           data: maxData
                       ),
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                       Sparkline(
                         pointsMode: PointsMode.all,
                           data: minData
@@ -173,17 +110,43 @@ class HomeScreenBody extends StatelessWidget {
                     ],
                   ),
                 )),
+                Row(
+                  children: [
+                    Container(
+                      width: 10,
+                      height: 10,
+                      decoration: const BoxDecoration(
+                          color: Colors.red,
+                        shape: BoxShape.circle
+                      ),
+                      child: Container(),
+                    ),
+                    const SizedBox(width: 10,),
+                    const Text("Max (°C)"),
+                    const SizedBox(width: 20,),
+                    Container(
+                      width: 10,
+                      height: 10,
+                      decoration: const BoxDecoration(
+                          color: Colors.blue,
+                        shape: BoxShape.circle
+                      ),
+                    ),
+                    const SizedBox(width: 10,),
+                    const Text("Min (°C)"),
+                  ],
+                )
               ]
           );
         })
           );
   }
 
-  String getDate(String dtTxt){
+  String getDate(String dtTxt){                             //Formats the date of the timestamp
     return DateFormat("Md").format(DateTime.parse(dtTxt));
   }
 
-  String getDayName(String dtTxt){
+  String getDayName(String dtTxt){      //Gets the day of the timestamp e.g. Sunday
     var currentDate = DateTime.now();
     var dateTime = DateTime.parse(dtTxt);
     var difference = dateTime.difference(currentDate);
@@ -193,21 +156,21 @@ class HomeScreenBody extends StatelessWidget {
     if(difference.inDays == 1){
       return "Tomorrow";
     }
-    // if(difference.inDays > 1){
     return DateFormat("EEEE").format(dateTime);
-    // }
-    // return ;
   }
 
   void populateFiveDayForecast(FiveDayForecastProvider provider, List<WeatherList> weatherList) {
     for (var i = 0; i < provider.weatherList.length; i++){
       if(i % 8 == 0){
         weatherList.add(provider.weatherList[i+4]);             //adding timestamps that correspond to the afternoon each day
-        maxData.add(provider.weatherList[i+4].main!.tempMax!.toDouble());
-        minData.add(provider.weatherList[i+4].main!.tempMin!.toDouble());
+        populateChartData(provider, i);
       }
-      // chartData.add(ChartData(i, provider.weatherList[i].main?.tempMax ?? 0));
     }
+  }
+
+  void populateChartData(FiveDayForecastProvider provider, int i) {
+      maxData.add(provider.weatherList[i+4].main!.tempMax!.toDouble()); //add max temp data
+    minData.add(provider.weatherList[i+4].main!.tempMin!.toDouble()); // add min temp data
   }
 }
 

@@ -10,7 +10,6 @@ class HomeRepoImpl implements HomeRepo{
 
   @override
   Future<WeatherModel?> fetchFiveDayWeather(String lat, String long, String unit) async {
-    print("Fetching...");
     try{
     var data = await apiService.get(
         endPoint: '?lat=${lat}&lon=${long}&appid=f6b8b253f95d22ea06e8db2604eb413f&units=$unit');

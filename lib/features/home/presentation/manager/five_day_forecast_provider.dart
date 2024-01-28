@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:location/location.dart';
-import 'package:provider/provider.dart';
 import 'package:weather_forecast/features/home/data/repos/home_repo.dart';
 
 import '../../data/models/WeatherList.dart';
-import 'location_provider.dart';
 
 class FiveDayForecastProvider with ChangeNotifier{
   final HomeRepo homeRepo;

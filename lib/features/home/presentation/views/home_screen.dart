@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_forecast/features/home/presentation/manager/five_day_forecast_provider.dart';
 
 import 'widgets/home_screen_body.dart';
+import 'widgets/my_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,10 +32,12 @@ class _HomeScreenState extends State<HomeScreen> {
         // leading: IconButton(onPressed: (){}, icon: Icon(Icons),),
         title: Text(cityName),
         centerTitle: true,
-        actions: [IconButton(onPressed: (){}, icon: Icon(Icons.share))],
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.share))],
+        automaticallyImplyLeading: true,
       ),
-      drawer: Drawer(),
+      drawer: const MyDrawer(),
       body: HomeScreenBody(),
     );
   }
 }
+

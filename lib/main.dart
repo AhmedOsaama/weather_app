@@ -6,6 +6,8 @@ import 'package:weather_forecast/features/home/presentation/manager/five_day_for
 import 'package:weather_forecast/features/home/presentation/manager/location_provider.dart';
 import 'package:weather_forecast/features/home/presentation/views/home_screen.dart';
 
+import 'features/splash/presentation/views/splash_screen.dart';
+
 void main() {
   setupServiceLocator();
   runApp(
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
